@@ -1,11 +1,11 @@
 <template>
-
-  <v-container grid-list-md>
+  <v-container grid-list-md style="display:flex; justified-content:center; padding-top:5rem;">
     <v-layout row wrap align-center justify-center fill-height>
       <v-flex xs12 sm8 lg4 md5>
-        <v-card class="login-card">
+        <v-card class="login-card" color="#26c6da" dark>
           <v-card-title>
-            <span class="headline">Login</span>
+            <v-icon>edit</v-icon>
+            <span style="padding-left:1rem;" class="headline">Login</span>
           </v-card-title>
             <v-alert v-if="showMsg === 'error'"
                 dismissible
@@ -57,7 +57,7 @@
                 />
 
               </v-container>
-              <v-btn class="blue white--text" :disabled="!valid" @click="login">Login</v-btn>
+              <v-btn class="blue white--text bt" :disabled="!valid" @click="login">Login</v-btn>
 
             </v-form>
 
@@ -79,6 +79,7 @@
     name: 'Auth',
 
     data: () => ({
+     
       credentials: {},
       valid: true,
       showMsg: '',
@@ -120,3 +121,12 @@
     }
   }
 </script>
+<style scoped>
+
+.bt{
+    display: flex;
+    justify-content: center;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+</style>

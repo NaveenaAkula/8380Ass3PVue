@@ -2,7 +2,8 @@
 <template>
 
   <v-app>
-    <v-toolbar class="blue">
+   
+    <v-toolbar style="background-color: cadetblue; background-image:'url(./assets/images/12.jpg)'">
       <v-toolbar-title>Eagle Finance Service</v-toolbar-title>
       <v-toolbar-items>
         <v-btn flat dark @click="goHome">Home</v-btn>
@@ -18,13 +19,15 @@
       </v-toolbar-items>
     </v-toolbar>
     <v-content>
-
+       <div :style="{'background-image':'url(src/assets/images/12.jpg)'}">
+        </div>
       <router-view/>
     </v-content>
   </v-app>
 </template>
 
 <script>
+  
   import router from './router';
   import {APIService} from './http/APIService';
   const apiService = new APIService();
@@ -34,6 +37,7 @@
     data: () => ({
       authenticated: false,
     }),
+   
 
     mounted() {
         apiService.getCustomerList().then(response => {
@@ -78,6 +82,7 @@
       goHome() {
         router.push('/');
       }
+     
     }
   };
 </script>	

@@ -1,19 +1,32 @@
 <template>
   <main>
     <br/>
-    <v-container fluid ma-0 pa-0 fill-height>
-      <v-layout column align-center>
-        <blockquote>
-          &#8220;Welcome {{validUserName}}!&#8221;
-          <footer>
-            <small>
-              <em>&mdash;Eagle Financial Services, your Midwest Financial Services Partner.</em>
-            </small>
-          </footer>
-        </blockquote>
+    <v-card
+    class="mx-auto"
+    max-width="400" style="background-color: burlywood;"
+  >
+  
+    <v-card-text class="text--primary">
+      <div>
+            <v-container fluid ma-0 pa-0 fill-height>
+                <v-layout column align-center>
+                  <blockquote>
+                    &#8220;Welcome {{validUserName}}!&#8221;
+                    <footer>
+                      <small>
+                        <em>&mdash;Eagle Financial Services, your Midwest Financial Services Partner.</em>
+                      </small>
+                    </footer>
+                  </blockquote>
 
-      </v-layout>
-    </v-container>
+                </v-layout>
+          </v-container>
+      </div>
+
+      
+    </v-card-text>
+  </v-card>
+    
     <br/> <br/> <br/>
 
     <v-container fluid fill-height>

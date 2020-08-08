@@ -9,6 +9,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "@mdi/js": "^5.4.55",
     "axios": "^0.19.2",
     "express": "^4.17.1",
     "sweetalert2": "^8.19.0",
