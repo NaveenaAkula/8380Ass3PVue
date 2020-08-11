@@ -1,6 +1,6 @@
 <template>
   <v-container grid-list-md>
-    <v-layout row wrap align-left justify-left fill-height>
+    <v-layout row wrap align-left justify-left fill-height class="editform">
       <v-flex xs12 sm8 lg7 md5>
          <v-layout column align-center>
        <v-flex xs6 sm8 md7>
@@ -15,7 +15,7 @@
        </v-flex>
          </v-layout>
         <v-card class="login-card">
-          <v-card-title>
+          <v-card-title style="background-color:darksalmon;">
             <span class="headline">{{pageTitle}}</span>
           </v-card-title>
 
@@ -26,7 +26,13 @@
 
             <v-form ref="form" lazy-validation>
               <v-container>
-
+                
+                <v-text-field
+                  v-model="stock.customer"
+                  label="Customer"
+                  required
+                  type="number"
+                />
 
                 <v-text-field
                   v-model="stock.cust_number"
@@ -66,9 +72,11 @@
                 
 
               </v-container>
-              <v-btn v-if="!isUpdate" class="blue white--text" @click="createStock">Save</v-btn>
-              <v-btn v-if="isUpdate" class="blue white--text" @click="updateStock">Update</v-btn>
-              <v-btn class="white black--text" @click="cancelOperation">Cancel</v-btn>
+              <div style="display:flex; justify-content:center;">
+                <v-btn v-if="!isUpdate" class="blue white--text" @click="createStock">Save</v-btn>
+                <v-btn v-if="isUpdate" class="blue white--text" @click="updateStock">Update</v-btn>
+                <v-btn class="white black--text" @click="cancelOperation">Cancel</v-btn>
+              </div>
 
 
             </v-form>
@@ -98,7 +106,7 @@
       };
     },
     methods: {
-      createStock() {
+     createStock() {
         apiService.addNewStock(this.stock).then(response => {
           if (response.status === 201) {
             this.stock = response.data;
@@ -154,6 +162,10 @@
   .aform {
     margin-left: auto;
     width: 60%;
+  }
+  .editform{
+    display: flex;
+    justify-content: center;
   }
 </style>
 

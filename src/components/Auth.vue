@@ -2,7 +2,7 @@
   <v-container grid-list-md style="display:flex; justified-content:center; padding-top:5rem;">
     <v-layout row wrap align-center justify-center fill-height>
       <v-flex xs12 sm8 lg4 md5>
-        <v-card class="login-card" color="#26c6da" dark>
+        <v-card class="login-card"  dark>
           <v-card-title>
             <v-icon>edit</v-icon>
             <span style="padding-left:1rem;" class="headline">Login</span>

@@ -2,10 +2,11 @@
 <template>
 
   <v-app>
+    
    
     <v-toolbar style="background-color: cadetblue; background-image:'url(./assets/images/12.jpg)'">
       <v-toolbar-title>Eagle Finance Service</v-toolbar-title>
-      <v-toolbar-items>
+      <v-toolbar-items style="display: flex">
         <v-btn flat dark @click="goHome">Home</v-btn>
         <v-btn flat dark @click="viewCustomers">Customers</v-btn>
          <v-btn flat dark @click="viewStocks">Stocks</v-btn>
@@ -18,8 +19,8 @@
         </v-btn>
       </v-toolbar-items>
     </v-toolbar>
-    <v-content>
-       <div :style="{'background-image':'url(src/assets/images/12.jpg)'}">
+    <v-content style="background: #b9dbd1;">  
+       <div style="{'background-image':'url(src/assets/images/12.jpg)'}">
         </div>
       <router-view/>
     </v-content>
@@ -36,6 +37,7 @@
     name: 'App',
     data: () => ({
       authenticated: false,
+     
     }),
    
 
@@ -66,7 +68,7 @@
         router.push('/customer-list');
       },
 
-       viewInvestments() {
+      viewInvestments() {
         router.push('/investment-list');
       },
 

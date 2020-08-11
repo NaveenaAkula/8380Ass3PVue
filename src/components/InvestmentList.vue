@@ -1,17 +1,32 @@
+
 <template>
-  <main>
+   <main>
     <br/>
-    <v-container fluid grid-list-md>
-      <v-layout column align-left>
-        <blockquote>
-         Welcome {{validUserName}}!
-          <footer>
-            <small>
-              <em>&mdash;Eagle Financial Services, your Midwest Financial Services Partner.</em>
-            </small>
-          </footer>
-        </blockquote>
-      </v-layout>
+    <v-card
+    class="mx-auto"
+    max-width="400" style="background-color: burlywood;"
+  >
+  
+    <v-card-text class="text--primary">
+      <div>
+            <v-container fluid ma-0 pa-0 fill-height>
+                <v-layout column align-center>
+                  <blockquote>
+                    &#8220;Welcome {{validUserName}}!&#8221;
+                    <footer>
+                      <small>
+                        <em>&mdash;Eagle Financial Services, your Midwest Financial Services Partner.</em>
+                      </small>
+                    </footer>
+                  </blockquote>
+
+                </v-layout>
+          </v-container>
+      </div>
+
+      
+    </v-card-text>
+  </v-card>
 
        <v-layout column align-center>
        <v-flex xs6 sm8 md7>
@@ -38,42 +53,49 @@
        </v-flex>
        </v-layout>
       <br/>
-      <v-container fluid grid-list-md fill-height>
-      <v-layout column>
-        <v-flex md6>
-      <v-data-table
-        :headers="headers"
-        :items="investments"
-        hide-actions
-        class="elevation-1"
-        fixed
-        style="max-height: 300px; overflow-y: auto"
-      >
+     <v-card>
+       <v-card-title style="display: flex; justify-content: center;background: darksalmon;"><h3 style="font-size: x-large;">Investment List</h3></v-card-title>
+       <v-card-text>
+          <div>
+        <v-container fluid grid-list-md fill-height>
+            <v-layout column>
+                  <v-flex md6>
+                      <v-data-table
+                        :headers="headers"
+                        :items="investments"
+                        hide-actions
+                        class="elevation-1"
+                        fixed
+                        style="max-height: 300px; overflow-y: auto">
 
-        <template slot="items" slot-scope="props" >
-          <td>{{ props.item.cust_number }}</td>
-          <td nowrap="true">{{ props.item.category }}</td>
-          <td nowrap="true">{{ props.item.description }}</td>
-          <td nowrap="true">{{ props.item.acquired_value }}</td>
-          <td nowrap="true">{{ props.item.acquired_date }}</td>
-          <td nowrap="true">{{ props.item.recent_value }}</td>
-          <td nowrap="true">{{ props.item.recent_date }}</td>
-          <td nowrap="true">
-            <v-icon @click="updateInvestment(props.item)">edit</v-icon>
-          </td>
-          <td nowrap="true">
-            <v-icon @click="deleteInvestment(props.item)">delete</v-icon>
-          </td>
+                        <template slot="items" slot-scope="props" >
+                          <td>{{ props.item.cust_number }}</td>
+                          <td nowrap="true">{{ props.item.category }}</td>
+                          <td nowrap="true">{{ props.item.description }}</td>
+                          <td nowrap="true">{{ props.item.acquired_value }}</td>
+                          <td nowrap="true">{{ props.item.acquired_date }}</td>
+                          <td nowrap="true">{{ props.item.recent_value }}</td>
+                          <td nowrap="true">{{ props.item.recent_date }}</td>
+                          <td nowrap="true">
+                            <v-icon @click="updateInvestment(props.item)">edit</v-icon>
+                          </td>
+                          <td nowrap="true">
+                            <v-icon @click="deleteInvestment(props.item)">delete</v-icon>
+                          </td>
 
-        </template>
+                        </template>
 
-      </v-data-table>
-        </v-flex>
-      </v-layout>
-      </v-container>
+                      </v-data-table>
+                  </v-flex>
+            </v-layout>
+        </v-container>
+      </div>
 
-      <v-btn class="blue white--text" @click="addNewInvestment">Add Investment</v-btn>
-    </v-container>
+       </v-card-text>
+     </v-card>
+     <div style="display:flex; justify-content:center;"> 
+       <v-btn class="blue white--text" @click="addNewInvestment">Add Investment</v-btn>
+     </div>
 
   </main>
 </template>
@@ -147,6 +169,8 @@
         router.push('/investment-create/' + investment.pk);
       },
       deleteInvestment(investment) {
+        let isDelete = confirm("Are you sure want to delete this investment??");
+        if(isDelete) {
         apiService.deleteInvestment(investment.pk).then(response => {
           if (response.status === 204) {
             alert("Investment deleted");
@@ -162,6 +186,8 @@
           }
         });
       }
+      }
     }
   };
 </script>
+

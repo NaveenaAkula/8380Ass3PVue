@@ -97,7 +97,7 @@
       viewCustomers() {
         router.push('/customer-list');
       },
-        viewInvestments() {
+      viewInvestments() {
          router.push('/investment-list');
       },
       viewStocks() {

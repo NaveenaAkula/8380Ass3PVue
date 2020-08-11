@@ -1,6 +1,6 @@
 <template>
   <v-container grid-list-md>
-    <v-layout row wrap align-left justify-left fill-height>
+    <v-layout row wrap align-left justify-left fill-height class="editform">
       <v-flex xs12 sm8 lg7 md5>
          <v-layout column align-center>
        <v-flex xs6 sm8 md7>
@@ -15,7 +15,7 @@
        </v-flex>
          </v-layout>
         <v-card class="login-card">
-          <v-card-title>
+          <v-card-title style="background-color:darksalmon;">
             <span class="headline">{{pageTitle}}</span>
           </v-card-title>
 
@@ -71,9 +71,11 @@
                 />
 
               </v-container>
-              <v-btn v-if="!isUpdate" class="blue white--text" @click="createCustomer">Save</v-btn>
-              <v-btn v-if="isUpdate" class="blue white--text" @click="updateCustomer">Update</v-btn>
-              <v-btn class="white black--text" @click="cancelOperation">Cancel</v-btn>
+              <div style="display:flex; justify-content:center;">
+                <v-btn v-if="!isUpdate" class="blue white--text" @click="createCustomer">Save</v-btn>
+                <v-btn v-if="isUpdate" class="blue white--text" @click="updateCustomer">Update</v-btn>
+                <v-btn class="white black--text" @click="cancelOperation">Cancel</v-btn>
+              </div>
 
 
             </v-form>
@@ -159,5 +161,10 @@
   .aform {
     margin-left: auto;
     width: 60%;
+  }
+
+  .editform{
+    display: flex;
+    justify-content: center;
   }
 </style>

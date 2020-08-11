@@ -1,8 +1,8 @@
 /* eslint-disable */
 import axios from 'axios';
 // const API_URL = 'http://localhost:8000'; /* http://groyce.pythonanywhere.com/ or http://localhost:8000 */
-// const API_URL = 'https://efs-3p1.herokuapp.com'
-const API_URL = 'https://groyce.pythonanywhere.com';
+const API_URL = 'https://efs-3p1.herokuapp.com'
+// const API_URL = 'https://groyce.pythonanywhere.com';
 export class APIService {
   constructor() {
 
@@ -64,7 +64,7 @@ export class APIService {
 
   }
 
-   addNewInvestment(investment){
+  addNewInvestment(investment){
   const url = `${API_URL}/api/investments/`;
   let jwtToken = localStorage.getItem('token');
   const headers = {Authorization: `jwt ${jwtToken}`};
@@ -103,18 +103,18 @@ export class APIService {
 
   }
 
-   addNewStock(stock){
+  addNewStock(stock){
   const url = `${API_URL}/api/stocks/`;
   let jwtToken = localStorage.getItem('token');
   const headers = {Authorization: `jwt ${jwtToken}`};
-  return axios.post(url, investment, {headers: headers});
+  return axios.post(url, stock, {headers: headers});
  }
 
  updateStock(stock){
    const url = `${API_URL}/api/stocks/${stock.pk}`;
    let jwtToken = localStorage.getItem('token');
    const headers = {Authorization: `jwt ${jwtToken}`};
-   return axios.put(url, investment, {headers: headers});
+   return axios.put(url, stock, {headers: headers});
  }
 
  deleteStock(stock_Pk){
